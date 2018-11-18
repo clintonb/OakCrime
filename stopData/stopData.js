@@ -120,7 +120,7 @@ function ready(error, oakGeo,beatTbl) {
 							  var cnt = beatTbl[d.properties.Name][encType][encResult][r];
 							  tot = tot + cnt;
 						  }
-						  // 2do: should renormalize when a race has zero cnt?
+						  // TODO: should renormalize when a race has zero cnt?
 					  }
 					  var v=0;
 					  for (var r in AllRace) {
@@ -130,7 +130,7 @@ function ready(error, oakGeo,beatTbl) {
 							  var frac = cnt / tot;
 							  v = v + frac * w;
 						  }
-						  // 2do: should renormalize when a race has zero cnt?
+						  // TODO: should renormalize when a race has zero cnt?
 					  }
                      console.log(d.properties.Name+" "+v+ " " +color(v));
                      return color(v);
@@ -254,7 +254,7 @@ function ready(error, oakGeo,beatTbl) {
 						  var cnt = beatTbl[d.properties.Name][encType][encResult][r];
 						  tot = tot + cnt;
 					  }
-					  // 2do: should renormalize when a race has zero cnt?
+					  // TODO: should renormalize when a race has zero cnt?
 				  }
 
                   var v=0;
@@ -265,7 +265,7 @@ function ready(error, oakGeo,beatTbl) {
 						  var frac = cnt / tot;
 						  v = v + frac * w;
 					  }
-					  // 2do: should renormalize when a race has zero cnt?
+					  // TODO: should renormalize when a race has zero cnt?
 				  }
                  console.log(d.properties.Name+" "+v+ " " +color(v));
      			 return color(v);

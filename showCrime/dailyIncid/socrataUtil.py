@@ -171,7 +171,7 @@ def analyzeHist(histTbl,outDir):
 						else:
 							chgType[ k ][ ' ' ][ ' ' ]  += 1
 							
-					# 2do: add suffix but keep dupe
+					# TODO: add suffix but keep dupe
 					# cidTbl[cid][harvestDate + ('_%05d' % incidIdx) ] = itbl
 					
 					cidTbl[cid][harvestDate ] = itbl
@@ -211,7 +211,7 @@ def analyzeHist(histTbl,outDir):
 		allDates = dupes[cid].keys()
 		allDates.sort()
 		for date in allDates:
-			# 2do: ugg! indices for dupes(:
+			# TODO: ugg! indices for dupes(:
 			for dpair in dupes[cid][date]:
 				print '%s,%s\n\t%s\n\t%s' % (cid,date,dpair[0],dpair[1])
 

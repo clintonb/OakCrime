@@ -377,7 +377,7 @@ def matchTbl2csv(matchTbl,outf,addrTbl,startIdx=0):
 			lng = ''
 				
 		for nocc,oinfo in enumerate(incidList):
-			# 2do: HACK!  'early' matchTbl incidents do not have CC, later they do (:
+			# TODO: HACK!  'early' matchTbl incidents do not have CC, later they do (:
 			(src,ctype,desc,ucr,statute,cc) = oinfo
 			
 			outFlds = (idx,cid,nocc+1,dateOnly,timeOnly,ctype,desc,beat,addr,lat,lng,src,ucr,statute,cc)
@@ -426,7 +426,7 @@ def matchTbl2json(matchTbl,outf,addrTbl):
 		outInfo = [dateOnly,timeOnly,beat,addr,lat,lng, []]
 		newIList = []
 		for nocc,oinfo in enumerate(incidList):
-			# 2do: HACK!  'early' matchTbl incidents do not have CC, later they do (:
+			# TODO: HACK!  'early' matchTbl incidents do not have CC, later they do (:
 			# assert len(oinfo) == 6,  'matchTbl2json: bad oinfo %s %s %s' % (cid, nocc, oinfo)
 			# src,ctype,desc,ucr,statute,cc = oinfo
 			
@@ -616,7 +616,7 @@ def json2matchTbl(inf):
 	for cid, info in inTbl.items():
 		[dateOnly,timeOnly,beat,addr,lat,lng,incidList] = info
 		
-		# 2do: UGH!  dateTime formatting slippage
+		# TODO: UGH!  dateTime formatting slippage
 		# C4A_dateTime_string = '%y%m%d_%H:%M:%S'
 		# C4A_date_string = '%Y-%m-%d'
 		# C4A_time_string = '%H:%M:%S'
@@ -689,7 +689,7 @@ def matchTbl2db(matchTbl,newdb,addrTbl,initDB=True):
 		idx += 1		
 						
 		for nocc,oinfo in enumerate(incidList):
-			# 2do: HACK!  'early' matchTbl incidents do not have CC, later they do (:
+			# TODO: HACK!  'early' matchTbl incidents do not have CC, later they do (:
 			(src,ctype,desc,ucr,statute,cc) = oinfo								
 				
 			newcur.execute('insert into CHARGE(chgidx, rd, rdchgidx, src, ctype, desc, ucr, statute, crimeCat)'+
@@ -843,7 +843,7 @@ def tallyHierOak(csvFile,catPrefix):
 		yrIdx = cyr-MinYear
 		nstat = crimeCat.normStat(stat)
 		
-		# 2do: replace exhaustive search with stat2cat dict!
+		# TODO: replace exhaustive search with stat2cat dict!
 		for cat in catTbl.keys():
 			if nstat in catTbl[cat]:
 				cntTbl[cat][yrIdx] += 1
@@ -941,7 +941,7 @@ def tallyBeatPeriod(matchTbl,beatList,crimeCatFile,sdate,edate):
 	
 	maxDate = datetime.strptime( CurrDate + ' 00:00', '%y%m%d %H:%M')
 	
-	# 2do: other date checks possible
+	# TODO: other date checks possible
 	assert (minDate < perStartDate and \
 			perStartDate < perEndDate and \
 			perEndDate <= maxDate), 'bad dates %s %s %s %s' % ( minDate,perStartDate,perEndDate,maxDate)
@@ -1313,7 +1313,7 @@ def bldBeatVec(beatTbl,outDir,annoteThresh = 3):
 	for b in GoodBeats:
 		outs.write('%s,' % b)
 		cvec = beatVecTbl[b]
-		# 2do: remove trailing comma!!
+		# TODO: remove trailing comma!!
 		for ic,cat in enumerate(domCat):
 			outs.write('%f,' % cvec[ic])
 		outs.write('\n')
@@ -1458,7 +1458,7 @@ def bldBeatVec(beatTbl,outDir,annoteThresh = 3):
 			else:
 				outs.write('')
 
-			# 2do: BUG, make ranking by ratios, too!	
+			# TODO: BUG, make ranking by ratios, too!
 # 				> ha, that's a bug: i originally reported all these as z-scores (eg, -4.7
 # 				> s.d.) vs. as percent of average, and am still ranking by z-score.
 # 				> so you're pointing to spots
@@ -1500,7 +1500,7 @@ def bldBeatVec(beatTbl,outDir,annoteThresh = 3):
 	
 	## Complex: All three beat stats
 	
-	# 2do: Create simple HTML tables showing both percent and SD
+	# TODO: Create simple HTML tables showing both percent and SD
 
 # 		-------- Original Message --------
 # 		Subject: Re: [OpenOakland Brigade] [CRIME] Per-beat analysis of Oakland crime 2007-2012, for CityCamp NCPC chats
@@ -1917,7 +1917,7 @@ def loadDataSlice_json(inf):
 				 prev_addr==addr)) or \
 			   (prev_beat=='' and beat != ''):
 				if (prev_beat=='' and beat != ''):
-					# 2do: allow update of bad date/time, address
+					# TODO: allow update of bad date/time, address
 					nupdate += 1
 
 				if newInfo in prev_incid:
@@ -2001,7 +2001,7 @@ def applyPatch(newDataList,matchTbl,addrTbl,missAddrFile,diffFile):
 				   	(prev_beat==new_beat or (prev_beat=='' and new_beat != ''))):
 					
 					if (prev_beat=='' and new_beat != ''):
-						# 2do: allow update of bad date/time, address
+						# TODO: allow update of bad date/time, address
 						nupdate += 1
 	
 					for newInfo in newIncidList:
@@ -2032,7 +2032,7 @@ def applyPatch(newDataList,matchTbl,addrTbl,missAddrFile,diffFile):
 							else:
 								msrc = psrc+'+'+patchLbl
 								
-								#2do: test intra-OPD merges?
+								#TODO: test intra-OPD merges?
 # 								if psrc.startswith('OPD'):
 # 									print 'intra-OPD merge?: cid=%s\n%s\n%s' % (newCID,prev_incid[fnd],str([msrc, mctype,mdesc,ucr,statute,cc]))
 									
@@ -2157,7 +2157,7 @@ def analCrimeTypeDist(matchTbl,outf):
 	for cnum,cid in enumerate(cidList):
 		(cdate,beat,addr,lat,lng, incidList) = matchTbl[cid]
 		for nocc,oinfo in enumerate(incidList):
-			# 2do: HACK!  'early' matchTbl incidents do not have CC, later they do (:
+			# TODO: HACK!  'early' matchTbl incidents do not have CC, later they do (:
 			(src,ctype,desc,ucr,stat,cc) = oinfo
 			ctypeTbl[ctype][stat] += 1
 
@@ -2211,7 +2211,7 @@ def analIncidClusters(matchTbl,outf):
 		statSet = set()
 		
 		for nocc,oinfo in enumerate(incidList):
-			# 2do: HACK!  'early' matchTbl incidents do not have CC, later they do (:
+			# TODO: HACK!  'early' matchTbl incidents do not have CC, later they do (:
 			(src,ctype,desc,ucr,statute,cc) = oinfo
 			if desc != '':
 				descSet.add(desc)

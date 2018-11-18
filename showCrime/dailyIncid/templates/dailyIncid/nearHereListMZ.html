@@ -72,7 +72,7 @@
 		var popupOptions = {maxWidth: 500};
 		{% for incid in incidList %}
 			var icon;
-			// 2do: use shared MAJOR_CRIME predicate
+			// TODO: use shared MAJOR_CRIME predicate
 			if ("{{incid.crimeCat}}"=="HOMOCIDE" || 
 				"{{incid.crimeCat}}"=="SEX_RAPE" ||
 				"{{incid.crimeCat}}"=="WEAPONS" ||

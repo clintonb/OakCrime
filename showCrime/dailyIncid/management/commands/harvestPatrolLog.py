@@ -119,7 +119,7 @@ def filterNewDLog(newIncid):
 		# dlogData = True AND lastModDateTime > startDate
 		# and also ncid/cid matches
 		
-		assert False, " 2do ASAP: do query against OakCrime"
+		assert False, " TODO ASAP: do query against OakCrime"
 		
 		newDLog[ncid] = newIncid[ncid].copy()
 		

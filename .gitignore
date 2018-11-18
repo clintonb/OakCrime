@@ -1,3 +1,4 @@
 *.py[ocd]
 
 **/oakcrime_venv/*
+.idea/

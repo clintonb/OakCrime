@@ -30,7 +30,7 @@ version: "3"
 - name: run HarvestSocrata script
   shell: runHarvestSocrata.sh
     
-# 2do
+# TODO
 
 - name: establish cron jobs for harvesters, db copying
 

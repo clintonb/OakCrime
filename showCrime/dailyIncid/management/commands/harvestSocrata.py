@@ -115,24 +115,24 @@ def socrata2OakCrime(socDict,startDate):
 	
 	if 'location_1' in socDict:
 		newOC.point	= Point(socDict['location_1']['coordinates'])
-		# 2do: extract (redundant) xlng,ylat
+		# TODO: extract (redundant) xlng,ylat
 		newOC.xlng, newOC.ylat = socDict['location_1']['coordinates']
 	else:
 		newOC.point = None
 		newOC.xlng = newOC.ylat = None
 			
-	# 2do ASAP: attempt to geotag missing addresses, eg "IFO address"
+	# TODO ASAP: attempt to geotag missing addresses, eg "IFO address"
 	
 	if newOC.ctype != '' or newOC.desc != '':
 		newOC.crimeCat = classify(newOC.ctype,newOC.desc)
 	else:
 		newOC.crimeCat = ''
 
-	# 2do: Retrain to produce pseudo-UCR, pseudo-PC
+	# TODO: Retrain to produce pseudo-UCR, pseudo-PC
 	newOC.ucr = ''
 	newOC.statute = ''
 		
-	## 2do: Geo-locate wrt/ zip, beat, census tract
+	## TODO: Geo-locate wrt/ zip, beat, census tract
 	newOC.zip = None
 	newOC.geobeat = None
 	newOC.ctractGeoID = None

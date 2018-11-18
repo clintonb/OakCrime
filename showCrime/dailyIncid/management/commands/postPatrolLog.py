@@ -191,7 +191,7 @@ def mergeDLog2Incid(dlogDict,ocResult,nowDate):
 		else:
 			newOC.point = None
 
-		# 2do: new classify(newOC.ctype,newOC.desc, PC)
+		# TODO: new classify(newOC.ctype,newOC.desc, PC)
 	
 		# NB: prefer previous crimeCat, then (re-)try to classify based on ctype,desc
 		# 		finally exploit dlog reg_pc
@@ -209,17 +209,17 @@ def mergeDLog2Incid(dlogDict,ocResult,nowDate):
 		newOC.source = incid.source + '+' + dlogSrc
 		
 
-	# 2do: Retrain to produce pseudo-UCR, pseudo-PC
+	# TODO: Retrain to produce pseudo-UCR, pseudo-PC
 	newOC.ucr = ''
 		
-	## 2do: Geo-locate wrt/ zip, beat, census tract
+	## TODO: Geo-locate wrt/ zip, beat, census tract
 	newOC.zip = None
 	newOC.geobeat = None
 	newOC.ctractGeoID = None
 
 	# add dlog features
 	newOC.dlogData = True
-	# 2do HACK: parse_OPDLog_PDForm.regularizeIncidTbl() doesn't always provide these fields(:
+	# TODO HACK: parse_OPDLog_PDForm.regularizeIncidTbl() doesn't always provide these fields(:
 	newOC.lossList = dlogDict['reg_loss']		if ('reg_loss' in dlogDict) else []
 	# NB: parse_OPDLog_PDForm.regularizeIncidTbl() only includes 'reg_gsw' from some injuries
 	newOC.gswP = 'reg_gsw' in dlogDict
@@ -229,7 +229,7 @@ def mergeDLog2Incid(dlogDict,ocResult,nowDate):
 	newOC.nsuspect = dlogDict['reg_nsuspect']   if ('reg_nsuspect' in dlogDict) else 0
 	newOC.nvictim = dlogDict['reg_nvictim']	 if ('reg_nvictim' in dlogDict) else 0
 	newOC.nhospital = dlogDict['reg_nhospital'] if ('reg_nhospital' in dlogDict) else 0
-	# 2do HACK: parse_OPDLog_PDForm.regularizeIncidTbl()  WHY WOULD reg_ro and reg_pc be missing?!
+	# TODO HACK: parse_OPDLog_PDForm.regularizeIncidTbl()  WHY WOULD reg_ro and reg_pc be missing?!
 	newOC.roList = dlogDict['reg_ro']		   if ('reg_ro' in dlogDict) else []
 	newOC.pcList = dlogDict['reg_pc']			if ('reg_pc' in dlogDict) else []
 	

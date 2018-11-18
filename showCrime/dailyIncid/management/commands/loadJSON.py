@@ -127,12 +127,12 @@ def json2matchTbl(inf,verboseFreq):
 				newOC.ucr = ucr
 				newOC.statute = statute
 					
-				## 2do: Geo-locate wrt/ zip, beat, census tract
+				## TODO: Geo-locate wrt/ zip, beat, census tract
 				newOC.zip = None
 				newOC.geobeat = None
 				newOC.ctractGeoID = None
 				
-				# 2do: use explicit commit_manually or transaction.commit() 
+				# TODO: use explicit commit_manually or transaction.commit()
 				# for batch update?	
 	
 				newOC.save()

@@ -47,7 +47,7 @@ class OakCrime(models.Model):
 	# derived geo attributes
 	zip = models.CharField(max_length=5,blank=True,null=True)
 	# beat as determined by geo query (vs. beat from OPD)
-	# 2do 
+	# TODO
 	geobeat = models.CharField(max_length=3,blank=True,null=True)
 	# full geoid = 06001423300, name=4233, tracttce=423300
 	# (CA-AlamedaCty-specific) longest census tract name < 10 char, eg "4062.01"

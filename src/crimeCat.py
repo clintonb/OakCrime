@@ -112,7 +112,7 @@ def classCrime(ctype,desc):
         return ''
 
 def normStat(s):
-    # 2do: handle slashes?!
+    # TODO: handle slashes?!
     
     s = s.strip().upper()
     if s[0:2] in CA_DOJ_Codes:

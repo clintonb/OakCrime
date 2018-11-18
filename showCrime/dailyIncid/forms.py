@@ -90,7 +90,7 @@ class simpleQ(forms.Form):
 	# idx = forms.IntegerField()
 	beat = forms.ChoiceField(choices=BeatChoices)
 	
-	# 2do: replace with hierarchic widget
+	# TODO: replace with hierarchic widget
 	## django-mptt, jquery, ...?
 	crimeCat = forms.ChoiceField(choices=CrimeCatChoices)  
 	
@@ -103,7 +103,7 @@ class twoTypeQ(forms.Form):
 	# idx = forms.IntegerField()
 	beat = forms.ChoiceField(choices=BeatChoices)
 	
-	# 2do: replace with hierarchic widget
+	# TODO: replace with hierarchic widget
 	## django-mptt, jquery, ...?
 	crimeCat = forms.ChoiceField(choices=CrimeCatChoices)  
 

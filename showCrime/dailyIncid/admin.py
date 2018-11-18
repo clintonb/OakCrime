@@ -26,7 +26,7 @@ class OakCrimeAdmin(GeoModelAdmin):
     # 2d0:  search seems kinda broken?
     # search_fields = ['opd_rd','desc','addr']
     
-    # 2do:  make cdate conformant
+    # TODO:  make cdate conformant
     # date_hierarchy = 'pub_date'
 
 
